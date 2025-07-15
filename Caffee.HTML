@@ -1,0 +1,263 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café</title>
+    <link rel="stylesheet" href="Style.CSS">
+
+</head>
+
+<body>
+    <div class="header">
+        <h1>Café</h1>
+    </div>
+    <nav class="nav">
+        <ul>
+            <li><a href="#" class="active" onclick="showPage('home', this)">Home</a></li>
+            <li><a href="#" onclick="showPage('menu', this)">Menu</a></li>
+            <li><a href="#" onclick="showPage('about', this)">About Us</a></li>
+            <li><a href="#" onclick="showPage('contact', this)">Contact Us</a></li>
+            <li><a href="#" onclick="showPage('order', this)">Order History</a></li>
+        </ul>
+    </nav>
+    <div class="divider"></div>
+    <!-- Home -->
+    <section id="home-section">
+        <div class="main-images">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80"
+                alt="Pastries and Coffee">
+            <img src="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
+                alt="Cakes Display">
+        </div>
+        <div class="desc-section">
+            Our café offers an assortment of delicious and delectable pastries and coffees that will put a smile on your
+            face. From cookies to croissants, tarts and cakes, each treat is especially prepared to excite your
+            tastebuds and brighten your day!
+        </div>
+    </section>
+     <!-- Menu -->
+   <section id="menu-section" class="hidden menu-section">
+        <h2>Our Menu</h2>
+        <form id="orderForm">
+        <div class="menu-list">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80" alt="Croissant">
+                <h3>Fresh Croissant</h3>
+                <div class="price">$2.50</div>
+                <div class="order-qty">Quantity: <input type="number" id="qty-croissant" min="0" value="0"></div>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80" alt="Chocolate Cake">
+                <h3>Chocolate Cake</h3>
+                <div class="price">$4.00</div>
+                <div class="order-qty">Quantity: <input type="number" id="qty-cake" min="0" value="0"></div>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?auto=format&fit=crop&w=400&q=80" alt="Fruit Tart">
+                <h3>Fruit Tart</h3>
+                <div class="price">$3.75</div>
+                <div class="order-qty">Quantity: <input type="number" id="qty-tart" min="0" value="0"></div>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=400&q=80" alt="Coffee">
+                <h3>Fresh Brewed Coffee</h3>
+                <div class="price">$1.80</div>
+                <div class="order-qty">Quantity: <input type="number" id="qty-coffee" min="0" value="0"></div>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=400&q=80" alt="Cinnamon Roll">
+                <h3>Cinnamon Roll</h3>
+                <div class="price">$2.80</div>
+                <div class="order-qty">Quantity: <input type="number" id="qty-roll" min="0" value="0"></div>
+            </div>
+        </div>
+        <div class="order-bar">Order Total: $<span id="order-total">0.00</span></div>
+        <div class="order-buttons">
+            <button type="button" class="order-btn" id="submitOrder">Submit Order</button>
+            <button type="button" class="reset-btn" id="resetOrder">Reset Order</button>
+        </div>
+        </form>
+    </section>
+    <!-- About Us -->
+    <section id="about-section" class="hidden about-section">
+        <h2>Contact Us</h2>
+        <img src="D:\Graphic Design\Photoshop\Image\logo\1-removebg.png" alt="Cafe Logo">
+        <div style="margin-top:18px; font-size:21px;">
+            123 Any Street<br>Any Town, USA
+        </div>
+        <div style="margin:14px 0 12px 0; font-size:20px;">Tel: +1-800-555-0193</div>
+        <h2 style="margin-bottom:8px;margin-top:28px;">Hours</h2>
+        <div style="font-size:20px;">
+            Weekdays: 6:00am – 6:00pm<br>
+            Saturday: 7:00am – 7:00pm<br>
+            Closed on Sundays
+        </div>
+        <div style="margin-top:35px; font-size:18px; font-weight:bold;">© 2024, Your Cafe. All rights reserved.</div>
+    </section>
+    <!-- Contact Us (Form) -->
+    <section id="contact-section" class="hidden contact-section">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+            <div class="success-msg" id="successMsg"></div>
+        </form>
+    </section>
+   
+    <!-- Order History -->
+    <section id="order-section" class="hidden order-section">
+        <h2>Order History</h2>
+        <ul class="order-history-list">
+            <li>10/07/2025 - 2x Croissant, 1x Coffee - <strong>$6.80</strong></li>
+            <li>05/07/2025 - 1x Chocolate Cake, 2x Fruit Tart - <strong>$11.50</strong></li>
+            <li>01/07/2025 - 1x Cinnamon Roll, 1x Coffee - <strong>$4.60</strong></li>
+            <li>27/06/2025 - 3x Croissant, 1x Coffee - <strong>$9.30</strong></li>
+        </ul>
+    </section>
+
+    <script>
+        function showPage(page, elem) {
+            // Hide all
+            document.getElementById('home-section').classList.add('hidden');
+            document.getElementById('about-section').classList.add('hidden');
+            document.getElementById('contact-section').classList.add('hidden');
+            document.getElementById('menu-section').classList.add('hidden');
+            document.getElementById('order-section').classList.add('hidden');
+
+            // Remove active class from nav links
+            document.querySelectorAll('.nav ul li a').forEach(a => a.classList.remove('active'));
+
+            // Show the selected page
+            if (page === 'home') document.getElementById('home-section').classList.remove('hidden');
+            if (page === 'about') document.getElementById('about-section').classList.remove('hidden');
+            if (page === 'contact') document.getElementById('contact-section').classList.remove('hidden');
+            if (page === 'menu') document.getElementById('menu-section').classList.remove('hidden');
+            if (page === 'order') document.getElementById('order-section').classList.remove('hidden');
+
+            // Set active class
+            if (elem) elem.classList.add('active');
+        }
+
+        // Default home
+        showPage('home', document.querySelector('.nav ul li a'));
+
+        // Contact form handler (fake send)
+        document.getElementById('contactForm').onsubmit = function (e) {
+            e.preventDefault();
+            document.getElementById('successMsg').innerText = 'Thank you for contacting us! We have received your message.';
+            this.reset();
+            setTimeout(() => { document.getElementById('successMsg').innerText = ''; }, 4000);
+        }
+    </script>
+</body>
+</html>
+   <!-- Order Confirmation -->
+    <div class="order-confirm hidden" id="order-confirm">
+        <h1>Café</h1>
+        <nav class="nav" style="background: orange; border-radius: 2px; margin-bottom: 10px;">
+            <ul style="display: flex; justify-content: center; list-style: none; margin: 0; padding: 0;">
+                <li style="margin: 0 45px;"><a href="#" style="font-size: 2em; color: white; text-decoration: none;">Home</a></li>
+                <li style="margin: 0 45px;"><a href="#" style="font-size: 2em; color: white; text-decoration: none;">Menu</a></li>
+                <li style="margin: 0 45px;"><a href="#" style="font-size: 2em; color: white; text-decoration: none;">Order History</a></li>
+            </ul>
+        </nav>
+        <h2>Order Confirmation</h2>
+        <div class="order-meta" id="order-meta"></div>
+        <table id="order-detail-table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="copyright">© 2024, Your Cafe. All rights reserved.</div>
+    </div>
+
+    <script>
+    // Product data
+    const products = [
+        { id: 'coffee', name: 'Coffee', price: 3.00 },
+        { id: 'choco',  name: 'Hot Chocolate', price: 3.00 },
+        { id: 'latte',  name: 'Latte', price: 3.50 },
+    ];
+    // Helper: get value
+    function getQty(id) {
+        return parseInt(document.getElementById('qty-' + id).value, 10) || 0;
+    }
+    // Calculate order total
+    function updateOrderTotal() {
+        let total = 0;
+        products.forEach(prod => {
+            const qty = getQty(prod.id);
+            total += qty * prod.price;
+        });
+        document.getElementById('order-total').innerText = total.toFixed(2);
+    }
+    document.getElementById('qty-coffee').addEventListener('input', updateOrderTotal);
+    document.getElementById('qty-choco').addEventListener('input', updateOrderTotal);
+    document.getElementById('qty-latte').addEventListener('input', updateOrderTotal);
+    document.getElementById('reset-btn').onclick = function() {
+        document.getElementById('qty-coffee').value = 0;
+        document.getElementById('qty-choco').value = 0;
+        document.getElementById('qty-latte').value = 0;
+        updateOrderTotal();
+    };
+    // Submit Order
+    document.getElementById('submit-btn').onclick = function() {
+        const orderItems = [];
+        let total = 0;
+        products.forEach(prod => {
+            const qty = getQty(prod.id);
+            if (qty > 0) {
+                orderItems.push({
+                    name: prod.name,
+                    price: prod.price,
+                    qty,
+                    amount: prod.price * qty
+                });
+                total += prod.price * qty;
+            }
+        });
+        if (orderItems.length === 0) {
+            alert('Please select at least one item.');
+            return;
+        }
+        // Order meta info
+        const orderNumber = Math.floor(Math.random()*1000) + 1;
+        const now = new Date();
+        const date = now.toISOString().slice(0,10);
+        const time = now.toLocaleTimeString('en-US', { hour12: false });
+        document.getElementById('order-meta').innerHTML = `
+            <b>Order Number: ${orderNumber}</b>&nbsp;&nbsp;
+            <b>Date: ${date}</b>&nbsp;&nbsp;
+            <b>Time: ${time}</b>&nbsp;&nbsp;
+            <b>Total Amount: $${total.toFixed(2)}</b>
+        `;
+        // Fill order detail table
+        let tbody = '';
+        orderItems.forEach(item => {
+            tbody += `<tr><td>${item.name}</td><td>$${item.price.toFixed(2)}</td><td>${item.qty}</td><td>$${item.amount.toFixed(2)}</td></tr>`;
+        });
+        document.querySelector('#order-detail-table tbody').innerHTML = tbody;
+        // Hide order section, show confirmation
+        document.getElementById('drinks-section').classList.add('hidden');
+        document.getElementById('order-total-section').classList.add('hidden');
+        document.getElementById('submit-btn').classList.add('hidden');
+        document.getElementById('reset-btn').classList.add('hidden');
+        document.getElementById('order-confirm').classList.remove('hidden');
+    };
+    // Init
+    updateOrderTotal();
+    </script>
